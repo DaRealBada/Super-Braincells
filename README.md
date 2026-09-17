@@ -24,52 +24,15 @@ Fonts (Cormorant Garamond, Lora) and the brain glyph load from CDNs; everything 
 ## How it works
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Idle
-
-    Idle --> Spinning : pull cord released past threshold<br/>or Spin pressed
-    Spinning --> Idle : reel settles on a row<br/>(question landed)
-
-    Idle --> Researching : Start research
-    Spinning --> Researching : auto-start enabled
-
-    Researching --> Researching : Pause / Resume
-    Researching --> Finished : Done<br/>(clock forced to 0:00)
-    Researching --> Speaking : countdown reaches 0:00
-    Finished --> Speaking : Speak now
-
-    Speaking --> Speaking : Pause / Resume<br/>Restart
-    Speaking --> Idle : countdown reaches 0:00
-
-    Researching --> Idle : Reset
-    Speaking --> Idle : Reset
-    Finished --> Idle : Reset
-
-    note right of Idle
-        Cord, module picker and
-        mode switch are live only here
-    end note
+flowchart LR
+    A([Pull the brain]) --> B[Reel spins]
+    B --> C[Lands on a question]
+    C --> D[Research clock]
+    D --> E[Speaking clock]
+    E --> A
 ```
 
-### The spin
-
-```mermaid
-flowchart TD
-    A[pointerdown on cord or brain] --> B{phase is idle?}
-    B -- no --> C[dull thud, ignore]
-    B -- yes --> D[track drag: stretch d, sway angle a]
-    D --> E[cord thins and lengthens<br/>reel nudges down with it]
-    E --> F[pointerup]
-    F --> G{d >= 42px?}
-    G -- no --> H[spring back, no spin]
-    G -- yes --> I[thwack, spring back]
-    I --> J[spin fires as cord passes rest]
-    J --> K[pick random target row != start row]
-    K --> L[3-5 full revolutions + delta<br/>quartic ease-out over ~4.6s]
-    L --> M[snap to row grid, chime, lock in question]
-```
-
-Every exit path — short pull, blocked spin, failed spin — restores the reel to the row grid, so the reel can't be left mid-row.
+Pull the pendant, land on a question, research it, then answer out loud. Pause, skip ahead or reset at any point.
 
 ## Editing the question bank
 

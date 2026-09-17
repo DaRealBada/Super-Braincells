@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Braincell — research it, then say it out loud</title>
+<link type="image/png" sizes="16x16" rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAWfmNhQlgAABZ+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFlhqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjJhMmUwMDViLTE4NTAtNDZiNS1hNDJjLTdlNDhkMDc0ZWIzMgAAAAOTanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuGp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNo5OmeKcDJZq4XZggOedoH+wAAAGxjYm9yo2lkYzpmb3JtYXRpaW1hZ2UvcG5namluc3RhbmNlSUR4LHhtcDppaWQ6OTI5MWM1MTEtOGRmNi00YzI5LWFiZjEtMGE2YTkyMzQ3ZWJmbHJlbGF0aW9uc2hpcGhwYXJlbnRPZgAAAeJqdW1iAAAAQWp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuYWN0aW9ucy52MgAAAAAYYzJzaEIhRdcoo7o+sZzd+9ocbdwAAAGZY2JvcqJnYWN0aW9uc4KiZmFjdGlvbmtjMnBhLm9wZW5lZGpwYXJhbWV0ZXJzoWtpbmdyZWRpZW50c4GiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYILJ8K+Gf7hdy6vgkKKSHepzz4Bi+M8FRuzhdbE7FgNw1pGZhY3Rpb254HWNvbS5hbnRocm9waWMuY2xhdWRlLnByb3ZpZGVkanBhcmFtZXRlcnOheB9jb20uYW50aHJvcGljLm9yaWdpbi1jb25maWRlbmNlZ3Vua25vd25rZGVzY3JpcHRpb254ZkNsYXVkZSBwcm92aWRlZCB0aGlzIGZpbGUgYXQgdGhlIHJlcXVlc3Qgb2YgYSB1c2VyIGFuZCBtYXkgaGF2ZSBjcmVhdGVkIG9yIG1vZGlmaWVkIHRoZSBmaWxlIGNvbnRlbnRzLm1zb2Z0d2FyZUFnZW50oWRuYW1lZkNsYXVkZXJhbGxBY3Rpb25zSW5jbHVkZWT1AAAAyGp1bWIAAABAanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5oYXNoLmRhdGEAAAAAGGMyc2jxyKexU7PZhlvHK5OZjYpIAAAAgGNib3KlY2FsZ2ZzaGEyNTZjcGFkTQAAAAAAAAAAAAAAAABkaGFzaFggQ7jVjanzLbajqPeqjpPp25nRuB35QsyHwk24rzVFROVkbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQYIWZsZW5ndGgZFooAAAI+anVtYgAAACdqdW1kYzJjbAARABCAAACqADibcQNjMnBhLmNsYWltLnYyAAAAAg9jYm9ypWNhbGdmc2hhMjU2aXNpZ25hdHVyZXhNc2VsZiNqdW1iZj0vYzJwYS91cm46YzJwYToyYTJlMDA1Yi0xODUwLTQ2YjUtYTQyYy03ZTQ4ZDA3NGViMzIvYzJwYS5zaWduYXR1cmVqaW5zdGFuY2VJRHgseG1wOmlpZDoyOTRiMmRmYy03NjcwLTQzYzEtOTMyZC1hZGM4MmQ3NTFiYjByY3JlYXRlZF9hc3NlcnRpb25zg6JjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggsnwr4Z/uF3Lq+CQopId6nPPgGL4zwVG7OF1sTsWA3DWiY3VybHgqc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5hY3Rpb25zLnYyZGhhc2hYID9P2MNxXTuGvqdoke7YlCdCJG9UlScvQMyKz8qFmrT+omN1cmx4KXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaGFzaC5kYXRhZGhhc2hYIPQA8+mrg3bwYWumN6QPs9g9tHezTDs6b3mHmUWk9XN9dGNsYWltX2dlbmVyYXRvcl9pbmZvo2RuYW1lb0FudGhyb3BpYyBGaWxlc2d2ZXJzaW9uZTEuMC4wa3NwZWNWZXJzaW9uZTIuNC4wAAAQOGp1bWIAAAAoanVtZGMyY3MAEQAQgAAAqgA4m3EDYzJwYS5zaWduYXR1cmUAAAAQCGNib3LShFkCEqIBJhghWQIKMIICBjCCAY2gAwIBAgIUQOWgCu7COdC+uIP6BkIFPWdVEwAwCgYIKoZIzj0EAwMwSTEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxLjAsBgNVBAMTJUFudGhyb3BpYyBDb250ZW50IENyZWRlbnRpYWxzIFJvb3QgQ0EwHhcNMjYwODA3MTg0MzU2WhcNMjgwODA2MTk0MzU2WjBEMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEpMCcGA1UEAxMgQW50aHJvcGljIENsYXVkZSBDb250ZW50IFNpZ25pbmcwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYegpry1AYBRTVNL1CpTlbROnY3dey+UrsF9C3phYrATN3ZHf93Mo8RQN0KOUuOn19P4oWNFWe5n2/She9N7eTo1gwVjAOBgNVHQ8BAf8EBAMCB4AwFQYDVR0lBA4wDAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFM5R4gSBTmRbI/jjxM+aPpzB11zCMAoGCCqGSM49BAMDA2cAMGQCMDFzHRSeAXrSy1WOzkbhPZ6Km2wGTmZ/2gK18k8BQGXyqz88Rdrz6CTX9flAnYNVxgIwcF9c3fVhqmJKpi+UhasNUMko69cyX6STPfta3Q8EjyzDjzoyrol46FP6VFHhvUcJoWNwYWRZDZ4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2WEAdNoyPXEbGRKM0C0nYvxeahA7gYva9YY1HspWiehUDOUVMcoJiPZPKhuAuPHt7JRhhrFcnlUNJ2lfxSU75wPCrQMFK2wAAAAlwSFlzAAALEwAACxMBAJqcGAAAAipJREFUeJyN099PUmEYB3DaWt12601by+tuurG77uuqtTZXbf2Y1UrTaimrcK6iGReluS7qH6gwpxLHYKkHBDke5NeOB6QDBAeM4ZYgcOTw4+C3nUPDgTR577+f93mf53lVqqYj+swnCr7FCZGxBIusPV0KUJvldadR4txXABwqu0a7kLB1ITDV0ZxVCU7T9R33D1H0kSgsm5D98glFagGlVSukkBtSxGNHwNoB14fjEqdXN4TzK9+7BadpNzP9GanRN0gOPUfywQg21Vr8GdGhaJuHFPFC+sW4wHFHkVg6hYT1nBLOkNPHBJrY2lk1I96rBt/zGMELPYjefFQDhnVIvxxDgTCiGmWAmH+w8XaHsU+g55AaH0fsxoACcJfu4PfAcA3Q6JBSa5F79xEVhkaV9/ONAGXQ5ywziFzuxc+LtxDqvov47aH6Ezb6niF89T6yuvcQjUbs8n6A507WgZzDsCgDyVevEb3Wr1Swce9JHUj2a5B+8VYBigTxD1g/rYRBkofzDsO2/AS5BwX3POQpFBkrSqwdJZcFwqRe6UHJtoBq2FcD4mynAmTthjN56hv+B5QDFCpBJwT9JMprK0oTqzF/fK/85VlNO0BtD7y1KfDswz3APvM0Rxkq7QJSlAmCZY80TGHbMdsp0ESoHaASWTu/b4VV8hrTBHkQUAl7MvJ/aAnk6Tmt4DRXD6jA0TLcfHJLXwez1imlmkbAQ7YFiF7ybOsK9gN/AfVaekjgQJALAAAAAElFTkSuQmCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+  :root{
+    --accent:#b68235; --a100:#f7e9d3; --a200:#ecd0a6; --a300:#e1ad66; --a400:#c68f3f;
+    --n100:#f4f2f0; --n200:#ddd9d4; --n300:#c3beb7; --n400:#a29c94; --n500:#817b73; --n600:#635e58;
+    --s2:9px; --s3:14px; --s4:18px; --s6:28px; --s8:46px;
+    --rm:4px; --heading:'Cormorant Garamond',serif; --body:'Lora',serif;
+    --hair:rgba(248,244,244,.12); --hair2:rgba(248,244,244,.2);
+    --gold22:rgba(225,173,102,.22); --gold34:rgba(225,173,102,.34);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#1b1917}
+  body{min-height:100vh;color:var(--n100);font-family:var(--body);
+    background:radial-gradient(120% 90% at 50% 0%,#241f1a 0%,#1b1917 60%)}
+  button{font:inherit}
+  a{color:var(--a300);text-decoration:none;border-bottom:1px solid var(--gold34)}
+  a:hover{color:var(--a200)}
+  ::selection{background:rgba(225,173,102,.3)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @keyframes breathe{0%,100%{opacity:.45}50%{opacity:1}}
+  @keyframes glow{0%,100%{box-shadow:0 0 0 rgba(225,173,102,0)}50%{box-shadow:0 0 18px rgba(225,173,102,.35)}}
+  @keyframes leg{0%{transform:rotate(-11deg)}100%{transform:rotate(11deg)}}
+
+  .wrap{min-height:100vh;display:flex;flex-direction:column;padding:var(--s6) var(--s8) var(--s4);position:relative;overflow:hidden}
+  header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--s6);
+    padding-bottom:var(--s3);border-bottom:1px solid var(--gold22)}
+  .wordmark{font-family:var(--heading);font-weight:300;font-size:44px;line-height:1;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+  .tagline{font-family:var(--heading);font-style:italic;font-weight:300;font-size:17px;color:var(--a300);margin-top:6px;text-align:center}
+  .ghostbtn{border:1px solid var(--hair2);background:transparent;color:var(--n300);border-radius:var(--rm);
+    padding:10px 18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+  .ghostbtn:hover{border-color:var(--a400);color:var(--a300)}
+  .seg{display:flex;border:1px solid var(--hair2);border-radius:var(--rm);overflow:hidden}
+  .seg button{border:0;background:transparent;color:var(--n400);padding:10px 18px;font-size:11px;
+    letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+  .seg button:hover{background:rgba(225,173,102,.26);color:var(--a100)}
+  .seg button.on{background:rgba(225,173,102,.16);color:var(--a200)}
+
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--s4) 0;gap:var(--s4)}
+  .catrow{position:relative;display:flex;justify-content:center}
+  #catBtn{display:flex;align-items:center;gap:12px;border:1px solid var(--a400);background:transparent;
+    color:var(--a200);border-radius:999px;padding:10px 24px;font-size:13px;letter-spacing:.1em;cursor:pointer}
+  #catBtn.locked{border-color:rgba(248,244,244,.1);color:var(--n600);cursor:not-allowed}
+  #catMenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:5;min-width:270px;
+    background:#221e1a;border:1px solid rgba(225,173,102,.28);border-radius:var(--rm);
+    box-shadow:0 18px 40px rgba(0,0,0,.5);padding:var(--s2) 0}
+  #catMenu button{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);width:100%;
+    border:0;background:transparent;padding:11px 20px;font-family:var(--body);font-size:14px;text-align:left;cursor:pointer;color:var(--n200)}
+  #catMenu button:hover{color:var(--a200)}
+  #catMenu button.on{color:var(--a200)}
+  .scrim{position:fixed;inset:0;z-index:4}
+
+  .stage{width:100%;display:flex;align-items:center;justify-content:center;gap:var(--s6)}
+  .mirror{flex:0 0 190px}
+  .reelcol{flex:0 1 820px;min-width:0;position:relative}
+  .frame{position:relative;border:1px solid var(--gold22);border-radius:var(--rm);
+    background:linear-gradient(180deg,rgba(248,244,244,.04) 0%,transparent 40%)}
+  .rule{position:absolute;left:-1px;right:-1px;height:1px;background:var(--gold34)}
+  .brackets{position:absolute;left:-1px;right:-1px;top:150px;height:150px;pointer-events:none}
+  .brackets i{position:absolute;width:10px;height:10px;border:0 solid var(--a400)}
+  .win{position:relative;height:450px;overflow:hidden;
+    mask-image:linear-gradient(to bottom,transparent 2%,rgba(0,0,0,.3) 20%,#000 34%,#000 66%,rgba(0,0,0,.3) 80%,transparent 98%);
+    -webkit-mask-image:linear-gradient(to bottom,transparent 2%,rgba(0,0,0,.3) 20%,#000 34%,#000 66%,rgba(0,0,0,.3) 80%,transparent 98%)}
+  #reel{will-change:transform}
+  .row{height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 var(--s6);
+    font-family:var(--heading);font-weight:300;line-height:1.14;letter-spacing:-.004em;text-wrap:pretty}
+  .cover{position:absolute;left:0;right:0;height:150px;background:#1b1917;display:none}
+  .noghost .cover{display:block}
+  .bar{height:2px;background:rgba(248,244,244,.1);position:relative;overflow:hidden}
+  #barFill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--a400)}
+
+  .controls{display:flex;align-items:center;justify-content:center;gap:var(--s3);margin-top:var(--s4);flex-wrap:wrap}
+  .pill{border:1px solid var(--hair2);background:transparent;color:var(--n200);border-radius:999px;
+    padding:13px 26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+  .pill:hover{border-color:var(--a400);color:var(--a300)}
+  .pill.gold{border-color:var(--a400);background:rgba(225,173,102,.12);color:var(--a200)}
+  .pill.gold:hover{background:rgba(225,173,102,.22)}
+  .pill.bright{border-color:var(--a200);background:rgba(225,173,102,.18);color:var(--a100)}
+  #spinBtn{border:1px solid var(--a400);background:transparent;color:var(--a300);border-radius:999px;
+    padding:15px 46px;font-family:var(--heading);font-weight:500;font-size:16px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+  #spinBtn:hover{background:rgba(225,173,102,.14);color:var(--a200)}
+  #spinBtn[disabled]{border-color:rgba(225,173,102,.26);color:var(--n600);cursor:not-allowed;background:transparent}
+  #researchBtn{border:1px solid var(--hair2);background:transparent;color:var(--n300);border-radius:999px;
+    padding:15px 30px;font-size:14px;font-variant-numeric:tabular-nums;cursor:pointer}
+  #researchBtn:hover{border-color:var(--a400);color:var(--a300)}
+  #researchBtn[disabled]{border-color:rgba(248,244,244,.1);color:var(--n600);cursor:not-allowed}
+  .clockwrap{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  .kicker{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--a300)}
+  #bigClock{font-family:var(--heading);font-weight:300;font-size:64px;line-height:1;letter-spacing:.04em;
+    font-variant-numeric:tabular-nums;color:var(--a200)}
+  #bigClock.paused{color:var(--n500);animation:breathe 1600ms ease-in-out infinite}
+  .hidden{display:none !important}
+
+  .cordcol{flex:0 0 190px;align-self:stretch;display:flex;flex-direction:column;align-items:center;
+    user-select:none;touch-action:none;position:relative}
+  .mount{width:74px;height:9px;border-radius:0 0 3px 3px;background:linear-gradient(180deg,#4a3c26,#2a241d);
+    border:1px solid rgba(225,173,102,.3);border-top:0}
+  .nipple{width:22px;height:7px;border-radius:0 0 999px 999px;background:linear-gradient(180deg,#e1ad66,#7d5411)}
+  #sway{position:relative;width:0;transform-origin:50% 0;transform:rotate(0deg)}
+  #cord{width:2px;height:150px;margin-left:-1px;background:linear-gradient(90deg,#6b5a3c,#d8c49a 45%,#6b5a3c);border-radius:2px}
+  .grab{position:absolute;left:-18px;top:0;bottom:-36px;width:36px;cursor:grab;z-index:2}
+  #brainWrap{width:60px;height:60px;margin-left:-30px;margin-top:-4px;display:flex;align-items:center;
+    justify-content:center;transition:opacity 260ms ease;cursor:grab}
+  #brainWrap.locked{cursor:not-allowed;opacity:.32}
+  #brainWrap img{display:block;width:60px;height:60px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.45))}
+  .legs{width:60px;margin-left:-30px;margin-top:-4px;display:flex;justify-content:center;gap:16px;pointer-events:none}
+  .leg{width:7px;height:24px;border-radius:4px;background:linear-gradient(90deg,#d97a8c,#f2a3b0 50%,#d97a8c);
+    transform-origin:50% 0;animation:leg 2.6s ease-in-out infinite alternate}
+  .leg:last-child{animation-direction:alternate-reverse}
+  .foot{width:16px;height:8px;margin:22px 0 0 -4px;border-radius:999px 999px 999px 4px;background:#f7dccd}
+
+  footer{display:flex;justify-content:center;border-top:1px solid var(--hair);padding-top:var(--s2);min-height:10px}
+
+  #scrimS{position:absolute;inset:0;background:rgba(10,9,8,.55);z-index:8}
+  aside{position:absolute;top:0;right:0;bottom:0;width:360px;background:#1f1b18;border-left:1px solid var(--gold22);
+    box-shadow:-24px 0 60px rgba(0,0,0,.5);padding:var(--s8) var(--s6);overflow:auto;z-index:9}
+  .asideHead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--hair);padding-bottom:var(--s3)}
+  .asideHead h2{font-family:var(--heading);font-size:26px;font-weight:300;margin:0;letter-spacing:.04em}
+  .lbl{margin-top:var(--s6);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--n500)}
+  .opts{display:flex;gap:var(--s2);margin-top:var(--s3);flex-wrap:wrap}
+  .opt{border:1px solid rgba(248,244,244,.18);background:transparent;color:var(--n400);border-radius:999px;
+    padding:8px 18px;font-size:12px;letter-spacing:.06em;font-family:var(--body);cursor:pointer;white-space:nowrap}
+  .opt:hover{border-color:var(--a400);color:var(--a300)}
+  .opt.on{border-color:var(--a400);background:rgba(225,173,102,.16);color:var(--a200)}
+  .toggles{margin-top:var(--s6);border-top:1px solid var(--hair)}
+  .toggle{width:100%;display:flex;align-items:baseline;justify-content:space-between;background:transparent;border:0;
+    border-bottom:1px solid var(--hair);padding:var(--s4) 0;cursor:pointer;color:var(--n100);font-size:15px;text-align:left}
+  .toggle:hover{color:var(--a300)}
+  .toggle span:last-child{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--a300)}
+  aside p{margin-top:var(--s6);font-size:13px;line-height:1.75;color:var(--n500);font-style:italic;text-align:justify}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><button class="ghostbtn" id="settingsBtn">Settings</button></div>
+    <div>
+      <div class="wordmark">braincell</div>
+      <div class="tagline">research it, then say it out loud</div>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <div class="seg" id="modeSeg">
+        <button data-mode="questions" class="on">Questions</button>
+        <button data-mode="concepts">Concepts</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="catrow">
+      <button id="catBtn"><span id="catLabel">All three modules</span><span id="caret" style="font-size:9px;opacity:.8">▼</span></button>
+    </div>
+
+    <div class="stage">
+      <div class="mirror" aria-hidden="true"></div>
+
+      <div class="reelcol">
+        <div class="frame" id="frame">
+          <div class="rule" style="top:150px"></div>
+          <div class="rule" style="top:300px"></div>
+          <div class="brackets">
+            <i style="left:0;top:-4px;border-left-width:1px;border-top-width:1px"></i>
+            <i style="right:0;top:-4px;border-right-width:1px;border-top-width:1px"></i>
+            <i style="left:0;bottom:-4px;border-left-width:1px;border-bottom-width:1px"></i>
+            <i style="right:0;bottom:-4px;border-right-width:1px;border-bottom-width:1px"></i>
+          </div>
+          <div class="win">
+            <div id="reel"></div>
+            <div class="cover" style="top:0"></div>
+            <div class="cover" style="bottom:0"></div>
+          </div>
+          <div class="bar"><div id="barFill"></div></div>
+        </div>
+
+        <div class="controls" id="runRow">
+          <div class="clockwrap">
+            <div class="kicker" id="kicker">Researching</div>
+            <div id="bigClock">15:00</div>
+          </div>
+          <div style="display:flex;gap:var(--s2);flex-wrap:wrap">
+            <button class="pill" id="pauseBtn">Pause</button>
+            <button class="pill gold" id="doneBtn">Done</button>
+            <button class="pill" id="restartBtn">Restart</button>
+            <button class="pill bright" id="speakBtn">Speak now — 2:00</button>
+            <button class="pill" id="resetBtn">Reset</button>
+          </div>
+        </div>
+
+        <div class="controls" id="idleRow">
+          <button id="spinBtn">Spin</button>
+          <button id="researchBtn">Start 15 min research</button>
+        </div>
+      </div>
+
+      <div class="cordcol">
+        <div class="mount"></div>
+        <div class="nipple"></div>
+        <div id="sway">
+          <div id="cord"></div>
+          <div class="grab" id="grab"></div>
+          <div id="brainWrap">
+            <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9e0.svg" alt="brain" width="60" height="60">
+          </div>
+          <div class="legs">
+            <div class="leg"><div class="foot"></div></div>
+            <div class="leg"><div class="foot"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <div id="scrimS" class="hidden"></div>
+  <aside id="drawer" class="hidden">
+    <div class="asideHead">
+      <h2>Settings</h2>
+      <button class="ghostbtn" id="closeDrawer" style="border:0;padding:0">Close</button>
+    </div>
+    <div class="lbl">Research time</div>
+    <div class="opts" id="researchOpts"></div>
+    <div class="lbl">Speaking time</div>
+    <div class="opts" id="speakOpts"></div>
+    <div class="lbl">Spin length</div>
+    <div class="opts" id="speedOpts"></div>
+    <div class="toggles">
+      <button class="toggle" id="tSound"><span>Sound effects</span><span>On</span></button>
+      <button class="toggle" id="tGhosts"><span>Ghost previews</span><span>On</span></button>
+      <button class="toggle" id="tAuto"><span>Start research after a spin</span><span>Off</span></button>
+    </div>
+    <p id="poolNote"></p>
+  </aside>
+</div>
+
+<script>
+const DATA = {
+  HCI: {
+    research: [
+      "Does generative UI genuinely threaten the relevance of human designers, or does it just change what they spend their time on?",
+      "Why is practitioner opinion on AI in design so split — what's actually driving the disagreement between designers cautious of AI and those embracing it?",
+      "Why is dark pattern research still fragmented — no shared classification, weak detection tooling — after nearly a decade of study?",
+      "Is the “dark patterns are just aggressive marketing” critique a fair challenge to HCI research, or does it miss something real about manipulative design?",
+      "Where should a product sit on the translation-to-full-localisation spectrum, and how should that be decided per market?",
+      "How do designers avoid overgeneralising “culture” when doing cross-cultural usability testing?",
+      "Is AI-moderated usability testing a genuine methodological advance, or does it lose something moderated human sessions capture?",
+      "When an AI-run study surfaces an unexpected failure pattern, is a small follow-up human-moderated session actually necessary?",
+      "Should conversational AI agents be held to a “fiduciary duty” standard, the way lawyers or doctors are — and is that a realistic design principle?",
+      "Does more human-likeness in an AI agent's design actually build more trust, or does anthropomorphism sometimes backfire?",
+      "What's the right balance between an agent's autonomy and a user's need for override and control points in agentic interface design?",
+      "Is “trust calibration” — matching trust to actual reliability rather than maximising it — a workable design principle, or too abstract to build for?",
+      "How should usability evaluation change when the interface is a multi-step autonomous agent rather than a static screen?",
+      "Is rapid prototyping still as valuable when AI can generate near-final UI directly from a prompt?",
+      "Does the push toward “human-centred computing” hold up once AI agents themselves become active participants in the interaction, not just tools?"
+    ],
+    wider: [
+      "What can HCI research borrow from behavioural economics’ study of “nudging” beyond the dark-patterns literature?",
+      "How do video game UI/UX conventions — tutorials, feedback loops, onboarding — compare to enterprise software UX?",
+      "Is there a meaningful parallel between trust calibration in human-agent interaction and trust research in human relationships or organisational psychology?"
+    ],
+    concepts: [
+      ["Generative UI (genUI)"],["Felt manipulation"],["MECE framework"],["Agent UX's four principles"],
+      ["Digital fiduciary design"],["Trust calibration vs maximisation"],["Cultural overgeneralisation"],
+      ["AI interview agents"],["Mixed-initiative interfaces"],["Anthropomorphism trade-offs"]
+    ]
+  },
+  "Cloud Computing": {
+    research: [
+      "What is cloud? Discuss different types of clouds with their usages? What are the cloud service requirements?",
+      "What is the significance of virtualization in cloud computing? Discuss the implementation levels of virtualization structures. What are the infrastructure requirements for virtualization?",
+      "Differentiate task from thread. How the operations like map, shuffle & sort and reduce are executed in map reduce approach for solving problems? Illustrate with example.",
+      "Explain the evolution of cloud computing.",
+      "What is SOA? Discuss why adoption of SOA is good while developing cloud applications.",
+      "Explain different types of hypervisors.",
+      "Describe the security architecture design in cloud.",
+      "Discuss the various security mechanisms that are implemented to secure a cloud.",
+      "Differentiate infrastructure as a service from platform as a service with examples.",
+      "What is Aneka container? Explain the components of Aneka Framework.",
+      "What is azure shell? Explain about azure monitoring services.",
+      "How are cloud platforms used in business and consumer applications?"
+    ],
+    wider: [],
+    concepts: [
+      ["Wasm-based Serverless 2.0"],["Compute density over time"],["The idle GPU epidemic"],
+      ["Power-bound, not GPU-bound"],["IDP as an internal product"],["FinOps"],["Tokens-per-watt"],
+      ["Cloud-agnostic architecture"],["The scale inversion point"],["Behind-the-meter generation"]
+    ]
+  },
+  ERP: {
+    research: [
+      "Why do reputable sources disagree so much on ERP failure rates — is this a definitional problem or a data-quality one?",
+      "Does moving to cloud ERP actually reduce failure risk, or just relocate the risk from infrastructure to change management?",
+      "Under what business conditions does best-of-breed genuinely outperform a single ERP suite despite the integration overhead?",
+      "Why does a best-of-breed vendor's advantage tend to disappear once it's acquired by a larger ERP company?",
+      "Can SAP's claim that its AI Agent Hub governs third-party agents on par with native agents actually be verified?",
+      "Given only around 20% of manufacturers feel ready to execute on AI-driven automation, what's the real blocker — data quality, trust, or organisational change?",
+      "How should a company budget for SAP's 2027 pricing cliff when free agentic runtime ends and post-promotion pricing is undisclosed?",
+      "Is the SAP ECC 2027 end-of-support deadline forcing rushed, poorly-planned migrations industry-wide?",
+      "Prosci claims human factors matter six times more than technical factors in ERP outcomes — does that hold across industries?",
+      "Is an autonomous Production Planning Agent that releases production orders without human review an efficiency gain or a new category of operational risk?",
+      "Does business process integration actually deliver the promised real-time visibility, or do data quality issues undermine it in practice?",
+      "Is 70% of ERP change-management failure really about poor communication and training, or are structural causes under-counted?",
+      "Should ERP vendor selection prioritise deep functionality per module or ease of integration across modules — and can you get both?",
+      "Does a greenfield S/4HANA migration generally outperform a brownfield one, or does it depend on how customised the original ECC system was?",
+      "Is the gap between cloud ERP and on-premise ERP creating a two-tier market that will force all on-prem customers to migrate regardless of preference?"
+    ],
+    wider: [
+      "How do ERP implementation failure patterns compare to large-scale government IT project failures?",
+      "Is there a meaningful comparison between vendor lock-in anxiety in ERP and the dependency utilities and railroads created for the industries around them?",
+      "What can ERP change-management research borrow from research on habit formation and behaviour change in individuals?"
+    ],
+    concepts: [
+      ["The Autonomous Enterprise"],["Joule Production Planning Agent"],["The 2027 SAP pricing cliff"],
+      ["Vendor indoctrination cycle"],["ADKAR model"],["Full Use Equivalents (FUEs)"],
+      ["Greenfield / brownfield / bluefield"],["The Revenue Visibility Gap"],
+      ["Shadow IT as adoption symptom"],["The human-factor multiplier"]
+    ]
+  }
+};
+
+const CATS = ["HCI", "Cloud Computing", "ERP", "Random"];
+const RESEARCH = [5, 10, 15, 20, 30];
+const SPEAK = [60, 90, 120, 180];
+const SPEEDS = [["Quick", 0.65], ["Normal", 1], ["Long", 1.5]];
+const ROW = 150, CORD = 150;
+
+const $ = id => document.getElementById(id);
+const el = {
+  reel: $('reel'), frame: $('frame'), bar: $('barFill'), cord: $('cord'), sway: $('sway'),
+  brain: $('brainWrap'), grab: $('grab'), catBtn: $('catBtn'), catLabel: $('catLabel'), caret: $('caret'),
+  runRow: $('runRow'), idleRow: $('idleRow'), kicker: $('kicker'), clock: $('bigClock'),
+  spin: $('spinBtn'), research: $('researchBtn'), pause: $('pauseBtn'), done: $('doneBtn'),
+  restart: $('restartBtn'), speak: $('speakBtn'), reset: $('resetBtn'),
+  drawer: $('drawer'), scrimS: $('scrimS')
+};
+
+let S = {
+  mode: 'questions', cat: 'Random', spinning: false, landed: false, idx: 0,
+  catOpen: false, sound: true, ghosts: true, autoStart: false,
+  researchLen: 900, speakLen: 120, phase: 'idle', left: 0, paused: false, speed: 1, pool: []
+};
+let offset = 0, tid = null, raf = null, snapRaf = null, audioDead = false, ctx = null;
+
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const entries = (cat, mode) => {
+  const d = DATA[cat]; if (!d) return [];
+  if (mode === 'concepts') return d.concepts.map(c => c[0]);
+  return d.research.concat(d.wider);
+};
+const buildPool = (mode, cat) => {
+  const cats = cat === 'Random' ? Object.keys(DATA) : [cat];
+  return shuffle(cats.reduce((acc, k) => acc.concat(entries(k, mode)), []).slice());
+};
+const clock = s => { const m = Math.floor(s / 60), r = s % 60; return m + ':' + (r < 10 ? '0' + r : r); };
+
+function ac() {
+  try {
+    if (!ctx) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; ctx = new C(); }
+    if (ctx.state === 'suspended') { const r = ctx.resume(); if (r && r.catch) r.catch(() => {}); }
+    return ctx;
+  } catch (e) { audioDead = true; return null; }
+}
+function blip(freq, dur, vol, type) {
+  if (!S.sound || audioDead) return;
+  let a = null; try { a = ac(); } catch (e) { return; }
+  if (!a) return;
+  try {
+    const o = a.createOscillator(), g = a.createGain();
+    o.type = type || 'square'; o.frequency.value = freq;
+    o.connect(g); g.connect(a.destination);
+    const t = a.currentTime;
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.0008, t + dur);
+    o.start(t); o.stop(t + dur + 0.02);
+  } catch (e) { audioDead = true; }
+}
+const ding = () => { blip(659.25, .5, .06, 'triangle'); setTimeout(() => blip(987.77, .7, .045, 'triangle'), 70); };
+const chime = () => [523.25, 659.25, 783.99].forEach((f, i) => setTimeout(() => blip(f, .6, .05, 'triangle'), i * 130));
+const thwack = d => { blip(90 + d * .6, .16, .1, 'sawtooth'); setTimeout(() => blip(1200, .06, .04), 40); };
+
+const fontSize = t => t.length < 46 ? 40 : t.length < 80 ? 31 : t.length < 120 ? 25 : 21;
+function renderReel() {
+  const rows = S.pool.concat(S.pool, S.pool);
+  el.reel.innerHTML = '';
+  const frag = document.createDocumentFragment();
+  rows.forEach(t => {
+    const d = document.createElement('div');
+    d.className = 'row';
+    d.style.fontSize = fontSize(t) + 'px';
+    d.textContent = t;
+    frag.appendChild(d);
+  });
+  el.reel.appendChild(frag);
+  paintReel(0);
+}
+const reelY = extra => ROW - offset - (S.pool.length * ROW) + (extra || 0);
+const paintReel = extra => { el.reel.style.transform = 'translateY(' + reelY(extra) + 'px)'; };
+
+function paintCord(d, a) {
+  el.cord.style.height = Math.max(40, CORD + d) + 'px';
+  const w = d > 0 ? Math.max(.9, 2 - d / 200) : 2;
+  el.cord.style.width = w + 'px';
+  el.cord.style.marginLeft = (-w / 2) + 'px';
+  el.sway.style.transform = 'rotate(' + a + 'deg)';
+  if (!S.spinning) paintReel(Math.max(-8, Math.min(22, d * .16)));
+}
+
+function repool(mode, cat) {
+  S.mode = mode; S.cat = cat;
+  S.pool = buildPool(mode, cat);
+  offset = 0; S.landed = false; S.idx = 0; S.phase = 'idle'; S.left = 0;
+  clearInterval(tid);
+  renderReel(); render();
+}
+
+function render() {
+  const research = S.phase === 'research', speak = S.phase === 'speak', finished = S.phase === 'finished';
+  const locked = S.spinning || research || speak || finished;
+
+  el.frame.parentElement.classList.toggle('noghost', !S.ghosts);
+  el.runRow.classList.toggle('hidden', !(research || speak || finished));
+  el.idleRow.classList.toggle('hidden', S.phase !== 'idle');
+  el.pause.classList.toggle('hidden', !(research || speak));
+  el.done.classList.toggle('hidden', !research);
+  el.restart.classList.toggle('hidden', !speak);
+  el.speak.classList.toggle('hidden', !finished);
+
+  el.kicker.textContent = S.spinning ? 'Spinning'
+    : (S.paused && (research || speak)) ? 'Paused'
+    : research ? 'Researching' : speak ? 'Speak now' : finished ? 'Finished'
+    : S.landed ? 'Your question' : 'Ready';
+  el.clock.textContent = clock(S.left);
+  el.clock.classList.toggle('paused', S.paused);
+  el.pause.textContent = S.paused ? 'Resume' : 'Pause';
+  el.speak.textContent = 'Speak now — ' + clock(S.speakLen);
+  el.research.textContent = S.spinning ? 'Spinning…' : 'Start ' + Math.round(S.researchLen / 60) + ' min research';
+  el.spin.disabled = locked;
+  el.research.disabled = locked;
+
+  el.bar.style.width = (research || speak) ? ((S.left / (research ? S.researchLen : S.speakLen)) * 100).toFixed(2) + '%' : '0%';
+  el.bar.style.background = speak ? 'var(--a200)' : 'var(--a400)';
+
+  el.brain.classList.toggle('locked', locked);
+  el.catBtn.classList.toggle('locked', locked);
+  el.catLabel.textContent = S.cat === 'Random' ? 'All three modules' : S.cat;
+  el.caret.textContent = S.catOpen ? '▲' : '▼';
+  document.querySelectorAll('#modeSeg button').forEach(b => b.classList.toggle('on', b.dataset.mode === S.mode));
+
+  const menu = $('catMenu'), scrim = $('catScrim');
+  if (S.catOpen && !menu) {
+    const sc = document.createElement('div'); sc.className = 'scrim'; sc.id = 'catScrim';
+    sc.onclick = () => { S.catOpen = false; render(); };
+    const m = document.createElement('div'); m.id = 'catMenu';
+    CATS.forEach(c => {
+      const b = document.createElement('button');
+      b.className = S.cat === c ? 'on' : '';
+      b.innerHTML = '<span>' + (c === 'Random' ? 'Random — all three' : c) + '</span><span style="color:var(--a300)">' + (S.cat === c ? '✓' : '') + '</span>';
+      b.onclick = () => { if (S.spinning || S.phase !== 'idle') return; S.catOpen = false; repool(S.mode, c); };
+      m.appendChild(b);
+    });
+    el.catBtn.parentElement.appendChild(sc);
+    el.catBtn.parentElement.appendChild(m);
+  } else if (!S.catOpen) { if (menu) menu.remove(); if (scrim) scrim.remove(); }
+
+  $('poolNote').textContent = S.pool.length + ' entries in this selection.';
+  renderOpts();
+}
+
+function renderOpts() {
+  const mk = (host, items, isOn, onPick) => {
+    host.innerHTML = '';
+    items.forEach(it => {
+      const b = document.createElement('button');
+      b.className = 'opt' + (isOn(it) ? ' on' : '');
+      b.textContent = it.label;
+      b.onclick = () => onPick(it);
+      host.appendChild(b);
+    });
+  };
+  mk($('researchOpts'), RESEARCH.map(m => ({ label: m + ' min', v: m * 60 })), it => S.researchLen === it.v,
+    it => { clearInterval(tid); S.researchLen = it.v; S.phase = 'idle'; S.left = 0; render(); });
+  mk($('speakOpts'), SPEAK.map(n => ({ label: clock(n), v: n })), it => S.speakLen === it.v,
+    it => { clearInterval(tid); S.speakLen = it.v; S.phase = 'idle'; S.left = 0; render(); });
+  mk($('speedOpts'), SPEEDS.map(([label, v]) => ({ label, v })), it => S.speed === it.v,
+    it => { S.speed = it.v; render(); });
+  $('tSound').lastElementChild.textContent = S.sound ? 'On' : 'Off';
+  $('tGhosts').lastElementChild.textContent = S.ghosts ? 'On' : 'Off';
+  $('tAuto').lastElementChild.textContent = S.autoStart ? 'On' : 'Off';
+}
+
+function run(phase) {
+  if (S.spinning) return;
+  clearInterval(tid);
+  S.phase = phase; S.left = phase === 'research' ? S.researchLen : S.speakLen; S.paused = false;
+  render();
+  tid = setInterval(() => {
+    if (S.paused) return;
+    S.left -= 1;
+    if (S.left <= 0) {
+      clearInterval(tid);
+      S.left = 0;
+      if (S.phase === 'research') { chime(); setTimeout(() => run('speak'), 400); }
+      else { ding(); S.phase = 'idle'; }
+    } else if (S.left <= 5) blip(520, .07, .04, 'triangle');
+    render();
+  }, 1000);
+}
+
+function spin() {
+  const N = S.pool.length;
+  if (S.spinning || N < 3 || S.phase !== 'idle') { paintReel(0); return; }
+  const span = N * ROW, start = offset;
+  const startIdx = Math.round(start / ROW) % N;
+  let target = Math.floor(Math.random() * N);
+  if (target === startIdx) target = (target + 1 + Math.floor(Math.random() * (N - 1))) % N;
+  const delta = ((target - startIdx) + N) % N;
+  const D = (3 + Math.floor(Math.random() * 3)) * span + delta * ROW;
+  const dur = 4600 * (S.speed || 1) + Math.random() * 700;
+
+  clearInterval(tid);
+  S.spinning = true; S.landed = false; S.phase = 'idle'; S.left = 0;
+  render();
+
+  const t0 = performance.now();
+  let lastRow = Math.floor(start / ROW), lastTick = 0;
+  const step = now => {
+    const p = Math.min(1, (now - t0) / dur);
+    const e = 1 - Math.pow(1 - p, 4);
+    const cur = start + D * e;
+    offset = ((cur % span) + span) % span;
+    paintReel(0);
+    const row = Math.floor(cur / ROW);
+    if (row !== lastRow) { lastRow = row; if (now - lastTick > 45) { lastTick = now; blip(820 + Math.random() * 140, .035, .028); } }
+    if (p < 1) raf = requestAnimationFrame(step);
+    else {
+      offset = target * ROW;
+      paintReel(0);
+      S.spinning = false; S.landed = true; S.idx = target;
+      render(); ding();
+      if (S.autoStart) setTimeout(() => run('research'), 700);
+    }
+  };
+  raf = requestAnimationFrame(step);
+}
+
+function snapBack(d0, a0, fire) {
+  let d = d0, v = -d0 * .16, a = a0, av = 0, started = false;
+  const step = () => {
+    v += -0.040 * d - 0.095 * v; d += v;
+    av += -0.055 * a - 0.10 * av; a += av;
+    paintCord(d, a);
+    if (!started && fire && d <= 2) { started = true; spin(); }
+    if (Math.abs(d) < .5 && Math.abs(v) < .5 && Math.abs(a) < .3) {
+      paintCord(0, 0);
+      if (fire && !started) { started = true; spin(); }
+      if (!S.spinning) paintReel(0);
+      return;
+    }
+    snapRaf = requestAnimationFrame(step);
+  };
+  snapRaf = requestAnimationFrame(step);
+}
+
+function onCordDown(e) {
+  if (S.spinning || S.phase !== 'idle') { blip(120, .08, .05, 'square'); return; }
+  e.preventDefault();
+  cancelAnimationFrame(snapRaf);
+  const y0 = e.clientY, x0 = e.clientX;
+  let d = 0, a = 0, lastNotch = 0;
+  const move = ev => {
+    const rawY = ev.clientY - y0;
+    d = rawY <= 0 ? rawY * .25 : 265 * (1 - Math.exp(-rawY / 240));
+    a = -Math.max(-22, Math.min(22, (ev.clientX - x0) * .13));
+    paintCord(d, a);
+    const notch = Math.round(d / 14);
+    if (notch !== lastNotch) { lastNotch = notch; blip(240 + d * 3.4, .025, .03, 'sawtooth'); }
+  };
+  const up = () => {
+    window.removeEventListener('pointermove', move);
+    window.removeEventListener('pointerup', up);
+    window.removeEventListener('pointercancel', up);
+    const fire = d >= 42;
+    try { if (fire) thwack(d); } catch (err) {}
+    try { snapBack(d, a, fire); }
+    catch (err) { paintCord(0, 0); paintReel(0); if (fire) spin(); }
+  };
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', up);
+  window.addEventListener('pointercancel', up);
+}
+
+el.grab.addEventListener('pointerdown', onCordDown);
+el.brain.addEventListener('pointerdown', onCordDown);
+el.spin.onclick = spin;
+el.research.onclick = () => run('research');
+el.pause.onclick = () => { blip(S.paused ? 700 : 400, .08, .04, 'triangle'); S.paused = !S.paused; render(); };
+el.done.onclick = () => { clearInterval(tid); blip(660, .25, .05, 'triangle'); S.phase = 'finished'; S.left = 0; S.paused = false; render(); };
+el.speak.onclick = () => run('speak');
+el.restart.onclick = () => run('speak');
+el.reset.onclick = () => { clearInterval(tid); S.phase = 'idle'; S.left = 0; S.paused = false; render(); };
+el.catBtn.onclick = () => { if (S.spinning || S.phase !== 'idle') return; S.catOpen = !S.catOpen; render(); };
+document.querySelectorAll('#modeSeg button').forEach(b => {
+  b.onclick = () => { if (S.spinning || S.phase !== 'idle') return; repool(b.dataset.mode, S.cat); };
+});
+$('settingsBtn').onclick = () => { el.drawer.classList.remove('hidden'); el.scrimS.classList.remove('hidden'); renderOpts(); };
+const closeDrawer = () => { el.drawer.classList.add('hidden'); el.scrimS.classList.add('hidden'); };
+$('closeDrawer').onclick = closeDrawer;
+el.scrimS.onclick = closeDrawer;
+$('tSound').onclick = () => { S.sound = !S.sound; renderOpts(); };
+$('tGhosts').onclick = () => { S.ghosts = !S.ghosts; render(); };
+$('tAuto').onclick = () => { S.autoStart = !S.autoStart; renderOpts(); };
+
+S.pool = buildPool('questions', 'Random');
+renderReel();
+render();
+</script>
+</body>
+</html>

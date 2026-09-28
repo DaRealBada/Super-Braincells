@@ -150,6 +150,7 @@
       <div class="seg" id="modeSeg">
         <button data-mode="questions" class="on">Questions</button>
         <button data-mode="concepts">Concepts</button>
+        <button data-mode="definitions">Definitions</button>
       </div>
     </div>
   </header>
@@ -296,32 +297,97 @@ const DATA = {
   },
   ERP: {
     research: [
-      "Why do reputable sources disagree so much on ERP failure rates — is this a definitional problem or a data-quality one?",
-      "Does moving to cloud ERP actually reduce failure risk, or just relocate the risk from infrastructure to change management?",
-      "Under what business conditions does best-of-breed genuinely outperform a single ERP suite despite the integration overhead?",
-      "Why does a best-of-breed vendor's advantage tend to disappear once it's acquired by a larger ERP company?",
-      "Can SAP's claim that its AI Agent Hub governs third-party agents on par with native agents actually be verified?",
-      "Given only around 20% of manufacturers feel ready to execute on AI-driven automation, what's the real blocker — data quality, trust, or organisational change?",
-      "How should a company budget for SAP's 2027 pricing cliff when free agentic runtime ends and post-promotion pricing is undisclosed?",
-      "Is the SAP ECC 2027 end-of-support deadline forcing rushed, poorly-planned migrations industry-wide?",
-      "Prosci claims human factors matter six times more than technical factors in ERP outcomes — does that hold across industries?",
-      "Is an autonomous Production Planning Agent that releases production orders without human review an efficiency gain or a new category of operational risk?",
-      "Does business process integration actually deliver the promised real-time visibility, or do data quality issues undermine it in practice?",
-      "Is 70% of ERP change-management failure really about poor communication and training, or are structural causes under-counted?",
-      "Should ERP vendor selection prioritise deep functionality per module or ease of integration across modules — and can you get both?",
-      "Does a greenfield S/4HANA migration generally outperform a brownfield one, or does it depend on how customised the original ECC system was?",
-      "Is the gap between cloud ERP and on-premise ERP creating a two-tier market that will force all on-prem customers to migrate regardless of preference?"
+      "Why is the functional organisational structure so common, and what does it cost a company when its processes cut across those functions?",
+      "How does taking a process view free managers from the silo effect?",
+      "In the fulfilment process, which functions are involved, and where are the hand-offs between them most likely to break down?",
+      "In the procurement process, how do Warehouse, Purchasing and Finance depend on one another?",
+      "In the urgent product inquiry scenario, why did the customer choose another supplier, and how would an ERP system have prevented it?",
+      "How can a loss of communication between functions end in a missed vendor payment, lost reputation and legal action?",
+      "Why does a centralised database, with data entered only once, reduce duplicates and inconsistencies across departments?",
+      "What does it mean to shift a business from a functional focus to a business-process focus, and why does ERP push companies toward it?",
+      "How did system architecture evolve from mainframe to client-server to service-oriented and cloud-based, and what changed in the number of users each could support?",
+      "What are the three layers of the client-server architecture, and what role does each play in an ERP system?",
+      "ERP processes are built on 'best practice' — should a business adapt its processes to fit the software, or customise the software to fit the business?",
+      "How do the documents and indicators recorded in an ERP system make a process fully auditable?",
+      "A customer orders 50 chairs but only 20 are in stock — walk through how an integrated ERP system handles the order from start to shipment.",
+      "Why does it matter that Finance can see both vendor invoices and customer invoices in one integrated system?",
+      "How do the individual steps of key business processes affect a company's costing and profit?",
+      "What must be in place — inside the business and with its suppliers — before a company can run Just-in-Time manufacturing?",
+      "How does a pull system, driven by actual customer demand, differ from production driven by forecasts, and what are the risks of each?",
+      "What made Dell's lean, demand-driven approach so successful, and what are its drawbacks?",
+      "Explain the 'river of inventory': why does lowering inventory levels expose information handling, business process and production problems?",
+      "Should a company pressure its suppliers to reduce their inventory, or share demand forecasts to help them plan — and what are the consequences of each?",
+      "How can knowledge from one business process, such as low stock of item X, be used to act in another, such as promoting item Y?",
+      "Why does running a pull supply chain depend on timely, accurate, paperless information flow?",
+      "How is the rise of ERP in the mid-1990s linked to the Business Process Reengineering trend of the early 1990s?",
+      "What is the difference between common and special ERP modules, and why is a modular design useful to a business?",
+      "ERP implementation affects every part of an organisation — why does this make it so risky, and why are failure rates high?",
+      "ERP promises to reduce delays, excessive inventory and lack of process visibility — which of these is hardest to solve, and why?"
     ],
-    wider: [
-      "How do ERP implementation failure patterns compare to large-scale government IT project failures?",
-      "Is there a meaningful comparison between vendor lock-in anxiety in ERP and the dependency utilities and railroads created for the industries around them?",
-      "What can ERP change-management research borrow from research on habit formation and behaviour change in individuals?"
-    ],
+    wider: [],
     concepts: [
-      ["The Autonomous Enterprise"],["Joule Production Planning Agent"],["The 2027 SAP pricing cliff"],
-      ["Vendor indoctrination cycle"],["ADKAR model"],["Full Use Equivalents (FUEs)"],
-      ["Greenfield / brownfield / bluefield"],["The Revenue Visibility Gap"],
-      ["Shadow IT as adoption symptom"],["The human-factor multiplier"]
+      ["Functional organisational structure"],
+      ["The silo effect"],
+      ["Business process"],
+      ["Process trigger events"],
+      ["Fulfilment process"],
+      ["Procurement process"],
+      ["Enterprise Resource Planning (ERP)"],
+      ["Centralised database"],
+      ["Single data entry"],
+      ["Real-time data access"],
+      ["Three-layer client-server architecture"],
+      ["Service-oriented architecture (SOA)"],
+      ["Cloud-based ERP"],
+      ["The enterprise system model (Davenport)"],
+      ["Best-practice processes"],
+      ["Process auditability"],
+      ["Business process integration"],
+      ["Processes that 'talk' to each other"],
+      ["Just-in-Time (JIT) manufacturing"],
+      ["Pull system"],
+      ["Pull supply chain"],
+      ["Lead time and cycle time"],
+      ["The river of inventory"],
+      ["Lean inventory"],
+      ["Business agility"],
+      ["Supply chain collaboration"],
+      ["Cross-process knowledge"],
+      ["Business Process Reengineering (BPR)"],
+      ["ERP modularity"],
+      ["ERP implementation risk"]
+    ],
+    definitions: [
+      "What is a business process?",
+      "What is a functional organisational structure?",
+      "What is the silo effect?",
+      "What triggers a business process?",
+      "What is an Enterprise Resource Planning (ERP) system?",
+      "What is the fulfilment process?",
+      "What is the procurement process?",
+      "What is a purchase requisition?",
+      "What is a purchase order?",
+      "What is a goods receipt?",
+      "What is a vendor invoice?",
+      "What is a reorder point?",
+      "What is a centralised database?",
+      "What is business process integration?",
+      "What is service-oriented architecture (SOA)?",
+      "What is a client-server architecture?",
+      "What is meant by 'best practice' in an ERP system?",
+      "What is Just-in-Time (JIT) manufacturing?",
+      "What is a pull system?",
+      "What is a pull supply chain?",
+      "What is lead time?",
+      "What is cycle time?",
+      "What is the 'river of inventory'?",
+      "What does it mean for a business to be agile?",
+      "What is Business Process Reengineering (BPR)?",
+      "What does SAP stand for?",
+      "What are common ERP modules?",
+      "What are special ERP modules?",
+      "What is CRM?",
+      "What is SCM?"
     ]
   }
 };
@@ -353,11 +419,14 @@ const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.f
 const entries = (cat, mode) => {
   const d = DATA[cat]; if (!d) return [];
   if (mode === 'concepts') return d.concepts.map(c => c[0]);
+  if (mode === 'definitions') return d.definitions || [];
   return d.research.concat(d.wider);
 };
 const buildPool = (mode, cat) => {
   const cats = cat === 'Random' ? Object.keys(DATA) : [cat];
-  return shuffle(cats.reduce((acc, k) => acc.concat(entries(k, mode)), []).slice());
+  const list = cats.reduce((acc, k) => acc.concat(entries(k, mode)), []);
+  if (!list.length) return ['No definitions for this module yet'];
+  return shuffle(list.slice());
 };
 const clock = s => { const m = Math.floor(s / 60), r = s % 60; return m + ':' + (r < 10 ? '0' + r : r); };
 

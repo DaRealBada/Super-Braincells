@@ -70,7 +70,7 @@
     mask-image:linear-gradient(to bottom,transparent 2%,rgba(0,0,0,.3) 20%,#000 34%,#000 66%,rgba(0,0,0,.3) 80%,transparent 98%);
     -webkit-mask-image:linear-gradient(to bottom,transparent 2%,rgba(0,0,0,.3) 20%,#000 34%,#000 66%,rgba(0,0,0,.3) 80%,transparent 98%)}
   #reel{will-change:transform}
-  .row{height:150px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 var(--s6);
+  .row{height:150px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 var(--s6);
     font-family:var(--heading);font-weight:300;line-height:1.14;letter-spacing:-.004em;text-wrap:pretty}
   .cover{position:absolute;left:0;right:0;height:150px;background:#1b1917;display:none}
   .noghost .cover{display:block}
@@ -338,32 +338,35 @@ const DATA = {
   },
   "Cloud Computing": {
     research: [
-      "Why did Amazon launch AWS in 2006, and what economies of scale did it offer its customers?",
-      "Break down the NIST definition of cloud computing: what does each part mean in practice?",
       "What do three-nines and five-nines uptime guarantees mean, and why do they matter to a cloud customer?",
       "How does rapid elasticity help a service survive a flash crowd?",
-      "How does resource pooling through virtualisation make cloud computing economical?",
       "Compare public, private, community and hybrid clouds on cost, flexibility and level of trust.",
       "When would an organisation choose a community cloud over a private one?",
       "How does cloud bursting work in a hybrid cloud, and why is it useful?",
-      "On-premise vs IaaS vs PaaS vs SaaS: who is responsible for what at each level?",
-      "What gets metered in each delivery model, and what does the customer still have to manage?",
       "Why does Model as a Service sit beside SaaS in control but beside IaaS in how it is metered?",
       "Why are cloud data centres built from commodity hardware rather than supercomputers?",
-      "Why is sharing bare metal between users hard, and how does virtualisation solve it?",
-      "How does virtualisation provide performance isolation, easier management and elasticity?",
       "What are the advantages and drawbacks of the client/server architecture?",
       "How does Infrastructure as Code eliminate configuration drift, and what other benefits does it bring?",
       "How do continuous integration, continuous delivery and continuous deployment differ?",
-      "How does a microservices architecture differ from a monolith, and when is each the better choice?",
       "How can cloud resources be abused to offer DDoS as a service?",
       "When you delete files in the cloud, are they truly deleted, and why does it matter?",
       "What is cloud security governance, and how does it tie security to an enterprise's business targets?",
       "Will edge computing replace cloud computing, or complement it?",
-      "Is AI just another cloud workload, or does it change what a cloud is?",
-      "LufStream runs transcoding, automatic subtitles, staff e-mail and a user database. Where does each sit on the delivery-model ladder, and what does that say about 'moving to the cloud' as a single decision?",
-      "LufStream's subtitle uploads arrive almost entirely on Sunday nights. Should it use a per-use speech-to-text API or an hourly GPU VM, and what does it give up with each?",
-      "Does the case for elasticity, utility pricing and no up-front hardware transfer unchanged to AI features like recommendations and a chat assistant?"
+      "Cloud services are sold at different levels: raw virtual machines (IaaS), managed platforms (PaaS), finished software (SaaS) and AI models behind an API (MaaS). If a small company runs video conversion, auto-subtitles, staff email and a customer database, which level fits each, and what would the company still have to look after itself?",
+      "Companies often talk about \"moving to the cloud\" as if it were one project. Why is it usually a series of separate decisions, and what trade-off decides each one?",
+      "Every cloud service has a billing unit: per VM-hour, per seat, per request, per minute of audio. What does the billing unit reveal about who is responsible for running and maintaining the service?",
+      "You can run a database yourself on a rented virtual machine, or pay for a managed database service. What does each option take off your hands or leave with you, and when is the extra control worth it?",
+      "Some workloads run all day at a steady rate; others arrive in bursts, like a week's uploads landing on one evening. How should that pattern decide whether you pay per use or per hour for cloud computing?",
+      "An AI feature like automatic subtitles can be bought as a pay-per-use API, or built by running an open model on a GPU you rent yourself. What do you gain and lose with each approach?",
+      "The standard case for the cloud rests on three ideas: elasticity, pay-as-you-go pricing and no up-front hardware. Do those arguments still hold when the workload is AI running on GPUs?",
+      "Ordinary virtual machines can be started in seconds, but GPUs for AI often can't. What makes GPU capacity in the cloud harder to get on demand?",
+      "Cloud computing is usually defined by five attributes, including self-service, elasticity and resource pooling. What are all five, and what would each one do for a website hit by a sudden surge of visitors?",
+      "A business wants the scalability of a public cloud but has confidential contracts and payment records it doesn't want on shared infrastructure. What deployment model solves this, and how would the split work?",
+      "Cloud providers run workloads from many different companies on the same physical servers. How does virtualisation keep those companies isolated from each other while still using the hardware efficiently?",
+      "Amazon and Google started out in online shopping and search, yet both now sell cloud infrastructure. Why did they move into it, and is the popular story about AWS renting out spare holiday capacity true?",
+      "The big cloud providers now also sell access to AI models. What do they already own and operate that makes them natural sellers of AI as a service?",
+      "Many applications start as one large codebase and are later split into small independent services. How does a microservices architecture change the way teams build, release and scale features?",
+      "Microservices are often presented as the modern default, but many teams deliberately stay with one large application. What costs come with microservices, and when is a monolith the better choice?"
     ],
     wider: [],
     concepts: [
@@ -394,12 +397,22 @@ const DATA = {
       ["Infrastructure as Code (IaC)"],
       ["Configuration drift"],
       ["CI/CD pipelines"],
-      ["Microservices vs monoliths"],
       ["DDoS as a service"],
       ["Data deletion in the cloud"],
       ["Cloud security governance"],
       ["Edge computing"],
-      ["AI as a cloud workload"]
+      ["AI as a cloud workload"],
+      ["Mixing delivery models"],
+      ["Billing units and responsibility"],
+      ["Managed database services"],
+      ["Per-use vs per-hour billing"],
+      ["Bursty workloads"],
+      ["GPU scarcity"],
+      ["Multi-tenancy"],
+      ["Cloud providers as AI model providers"],
+      ["The AWS spare-capacity myth"],
+      ["Independent deployment"],
+      ["Microservice trade-offs"]
     ],
     definitions: [
       "What is cloud computing, according to NIST?",
@@ -436,7 +449,14 @@ const DATA = {
       "What is a monolithic architecture?",
       "What is a DDoS attack?",
       "What is cloud security governance?",
-      "What is edge computing?"
+      "What is edge computing?",
+      "What is a bursty workload?",
+      "What is multi-tenancy?",
+      "What is a hypervisor?",
+      "What is a managed database service?",
+      "What is a rate limit?",
+      "What is independent deployment?",
+      "What does cloud-native mean?"
     ]
   },
   ERP: {
@@ -599,7 +619,15 @@ const ding = () => { blip(659.25, .5, .06, 'triangle'); setTimeout(() => blip(98
 const chime = () => [523.25, 659.25, 783.99].forEach((f, i) => setTimeout(() => blip(f, .6, .05, 'triangle'), i * 130));
 const thwack = d => { blip(90 + d * .6, .16, .1, 'sawtooth'); setTimeout(() => blip(1200, .06, .04), 40); };
 
-const fontSize = t => t.length < 46 ? 40 : t.length < 80 ? 31 : t.length < 120 ? 25 : 21;
+const fontSize = t => t.length < 46 ? 40 : t.length < 80 ? 31 : t.length < 120 ? 25 : t.length < 200 ? 21 : t.length < 280 ? 19 : 17;
+function fitRows() {
+  el.reel.querySelectorAll('.row').forEach(d => {
+    let s = parseFloat(d.style.fontSize) || 21;
+    while (d.scrollHeight > d.clientHeight + 1 && s > 12) { s -= 1; d.style.fontSize = s + 'px'; }
+  });
+}
+let fitT = null;
+window.addEventListener('resize', () => { clearTimeout(fitT); fitT = setTimeout(() => { el.reel.querySelectorAll('.row').forEach(d => { d.style.fontSize = fontSize(d.textContent) + 'px'; }); fitRows(); }, 120); });
 function renderReel() {
   const rows = S.pool.concat(S.pool, S.pool);
   el.reel.innerHTML = '';
@@ -612,6 +640,7 @@ function renderReel() {
     frag.appendChild(d);
   });
   el.reel.appendChild(frag);
+  fitRows();
   paintReel(0);
 }
 const reelY = extra => ROW - offset - (S.pool.length * ROW) + (extra || 0);

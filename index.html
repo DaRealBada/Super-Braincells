@@ -272,7 +272,19 @@ const DATA = {
       "How do mapping and colour coding make connector ports less ambiguous?",
       "What happens when consistency breaks down, as with keyboard shortcuts that share a first letter?",
       "Why is external consistency so rare, as the keypad layouts of phones and calculators show?",
-      "Why does Norman argue that screen interfaces have perceived rather than real affordances, and what does that mean for design?"
+      "Why does Norman argue that screen interfaces have perceived rather than real affordances, and what does that mean for design?",
+      "Psychologists separate instant thinking (2 + 2) from effortful thinking (21 × 29). What are these two modes, and why should a designer care which one a task demands?",
+      "Users can't attend to everything on a screen at once. How do layout, grouping, colour and spacing steer attention, and when do they start competing?",
+      "A booking form fails with \"INVALID INPUT\" and an OK button that clears everything. What makes a form easy to recover from an error?",
+      "People recognise things far more easily than they recall them. How have menus, icons and browser history used this, and where do interfaces still force recall?",
+      "A 1956 study is often quoted as \"menus should have seven items\". What did it actually find, and when does limiting visible options really help?",
+      "Memories form only if something is attended to and encoded, and they're easier to recall in the context they were learned. What does this mean for designing interfaces and learning tools?",
+      "One chat assistant shows only a Send button while it works; another shows \"Preparing a draft…\" with a Stop button. How does showing system state change what users believe and do?",
+      "Apps make it easy to choose a restaurant or university from reviews and rankings. Do digital tools improve decisions, or make us too dependent on external guidance?",
+      "Users carry their own idea of how a system works, like turning a thermostat up full to heat a room faster. How do these mental models form, and what happens when they're wrong?",
+      "Norman describes two gaps between people and systems: knowing how to act, and understanding what happened. What are the gulfs of execution and evaluation, and how do designs bridge them?",
+      "Fitts' law predicts how long it takes to point at a target from its distance and size. What does it say about button design, and what can't a model like this predict?",
+      "234 × 456 is far easier than CCXXXIV × CDLVI, though it's the same sum. How do notes, calendars and visualisations take thinking work off our heads?"
     ],
     wider: [],
     concepts: [
@@ -303,7 +315,13 @@ const DATA = {
       ["Consistency"],
       ["Internal vs external consistency"],
       ["Affordances"],
-      ["Perceived affordances"]
+      ["Perceived affordances"],
+      ["Structured HCI judgement"],
+      ["WCAG contrast requirements"],
+      ["Working vs long-term memory"],
+      ["Memory load"],
+      ["Incidental vs intentional learning"],
+      ["Annotation and cognitive tracing"]
     ],
     definitions: [
       "What is interaction design?",
@@ -333,7 +351,12 @@ const DATA = {
       "What is an affordance?",
       "What is a perceived affordance?",
       "What is ubiquitous computing?",
-      "What is Computer Supported Co-operative Work (CSCW)?"
+      "What is Computer Supported Co-operative Work (CSCW)?",
+      "What is cognition?",
+      "What is perception?",
+      "What is divided attention?",
+      "What is salience?",
+      "What is a cognitive framework?"
     ]
   },
   "Cloud Computing": {
@@ -344,7 +367,6 @@ const DATA = {
       "When would an organisation choose a community cloud over a private one?",
       "How does cloud bursting work in a hybrid cloud, and why is it useful?",
       "Why does Model as a Service sit beside SaaS in control but beside IaaS in how it is metered?",
-      "Why are cloud data centres built from commodity hardware rather than supercomputers?",
       "What are the advantages and drawbacks of the client/server architecture?",
       "How does Infrastructure as Code eliminate configuration drift, and what other benefits does it bring?",
       "How do continuous integration, continuous delivery and continuous deployment differ?",
@@ -366,7 +388,20 @@ const DATA = {
       "Amazon and Google started out in online shopping and search, yet both now sell cloud infrastructure. Why did they move into it, and is the popular story about AWS renting out spare holiday capacity true?",
       "The big cloud providers now also sell access to AI models. What do they already own and operate that makes them natural sellers of AI as a service?",
       "Many applications start as one large codebase and are later split into small independent services. How does a microservices architecture change the way teams build, release and scale features?",
-      "Microservices are often presented as the modern default, but many teams deliberately stay with one large application. What costs come with microservices, and when is a monolith the better choice?"
+      "Microservices are often presented as the modern default, but many teams deliberately stay with one large application. What costs come with microservices, and when is a monolith the better choice?",
+      "Blade servers pack far more computing into a rack than ordinary servers. Why isn't higher density always better, and what does it demand from power, cooling and networking?",
+      "Data centres store data as blocks, files or objects, on drives attached directly or over a network. How do these approaches differ, and which applications suit each?",
+      "A data centre runs separate networks for users, server-to-server traffic, storage and management, arranged in a hierarchy. Why split and layer them this way?",
+      "A big task can run on one 128-core server or across many cheaper small ones. What decides which is faster, and why does communication between machines matter so much?",
+      "If many small servers beat a few big ones, why not build clusters from tiny single-core machines? What makes highly parallel programs hard to write, balance and debug?",
+      "No major provider runs everything from one data centre. What risks push them to build regions and availability zones, and how do the two differ?",
+      "Failures can hit a server, a rack, a zone or a whole region, yet many \"highly available\" systems keep every copy in one zone. How should a service be designed around failure domains?",
+      "Copying data between distant sites forces a choice: wait for every copy to confirm, or carry on and risk losing recent writes. When would you choose each?",
+      "Picking a cloud region means weighing latency, data residency law, price, carbon and which hardware is available there. How do these trade off, especially for AI?",
+      "An AI training rack can draw ten times the power of a normal rack and can't be air-cooled. How is AI changing data centre design and the high-end vs low-end server debate?",
+      "Data centres' share of world electricity is growing fast, mostly because of AI. What does PUE measure, and what can a cloud customer actually do about sustainability?",
+      "Running thousands of servers, or a fleet of GPUs where one failure can stall a training job, is a different problem from running one. What does a \"data centre operating system\" need to handle?",
+      "Training a model for a few days on dozens of GPUs is expensive and power-hungry. Should a small company rent that capacity or build its own facility?"
     ],
     wider: [],
     concepts: [
@@ -389,8 +424,6 @@ const DATA = {
       ["Software as a Service (SaaS)"],
       ["Model as a Service (MaaS)"],
       ["The delivery-model ladder"],
-      ["Cloud data centres"],
-      ["Commodity hardware"],
       ["Resource virtualisation"],
       ["Performance isolation"],
       ["Client/server architecture"],
@@ -412,7 +445,11 @@ const DATA = {
       ["Cloud providers as AI model providers"],
       ["The AWS spare-capacity myth"],
       ["Independent deployment"],
-      ["Microservice trade-offs"]
+      ["Microservice trade-offs"],
+      ["Data centre placement in the internet core"],
+      ["Rack units and chassis"],
+      ["Workload parallelisation"],
+      ["OpenStack"]
     ],
     definitions: [
       "What is cloud computing, according to NIST?",
@@ -456,7 +493,13 @@ const DATA = {
       "What is a managed database service?",
       "What is a rate limit?",
       "What is independent deployment?",
-      "What does cloud-native mean?"
+      "What does cloud-native mean?",
+      "What is InfiniBand?",
+      "What is Fibre Channel?",
+      "What is a middlebox?",
+      "What is load balancing?",
+      "What is a quorum?",
+      "What is a straggler, in distributed computing?"
     ]
   },
   ERP: {
